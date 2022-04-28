@@ -1,0 +1,67 @@
+[
+  'WHITE',           'RED',             'PINK',
+  'LIGHT PINK',      'BRIGHT GREEN',    'DENIUM',
+  'CHARCOAL',        'FOREST',          'LIGHT BLUE',
+  'LIME',            'MINT',            'NAVY',
+  'BLACK',           'ROYAL BLUE',      'MOKUGRAY',
+  'OATMEAL',         'BURGUNDY',        'BLUE',
+  'DEEP NAVY',       'BRIGHT RED',      'GRAY',
+  'ORANGE',          'OLIVE',           'HOT PINK',
+  'DAISY',           'LIGHT PURPLE',    'Matte Black',
+  'LIGHT GREEN',     'GREEN',           'BLACK * TURQUOISE',
+  'NAVY * HOT PINK', 'TURQUOISE',       'LIGHTPINK',
+  'NAVY*YELLOW',     'BLACK*TURQUOISE', 'PURPLE',
+  'NATURAL',         'Natural',         'Natural x Black',
+  'Natural x Navy'
+]
+
+[
+  '00083-BBT', '00085-CVT', '00086-DMT',
+  '00102-CVL', '00141-NVP', '00216-MLH',
+  '00217-MLZ', '00218-MLP', '00219-MLC',
+  '00238-RFJ', '00300-ACT', '00302-ADP',
+  '00304-ALT', '00313-ABN', '00315-AYB',
+  '00325-ACP', '00330-AVP', '00331-ABP',
+  '00335-ALP', '00339-AYP', '00346-AFC',
+  '00347-AFH', '00348-AFZ', '00350-AIT',
+  '00777-SCT', '00778-TCC', '00780-TWT'
+]
+
+[
+  '라이트 라운드 티셔츠',
+  '베이직 라운드 티셔츠',
+  '스탠다드 라운드 티셔츠 (20수)',
+  '베이직 라운드 긴팔 티셔츠(17수)',
+  '베이직 폴로셔츠(주머니 없음)',
+  '후드티',
+  '후드 집업',
+  '쮸리 팬츠',
+  '맨투맨',
+  '리플렉트 플리스 자켓',
+  '드라이 라운드 티셔츠',
+  '드라이 폴로 셔츠',
+  '드라이 롱 슬리브 티셔츠',
+  '드라이 버튼다운 폴로셔츠',
+  '드라이 레이어드 버튼다운 폴로셔츠 (주머니 있음)',
+  '드라이 하프 팬츠',
+  '드라이 폴로셔츠 (주머니 있음)',
+  '드라이 버튼 다운 폴로셔츠',
+  '드라이 긴팔 폴로셔츠',
+  '드라이 레이어드 폴로 셔츠 (주머니 있음)',
+  '드라이 기모 맨투맨',
+  '드라이 기모 후드',
+  '드라이 기모 후드 집업',
+  '라이트 드라이 라운드 티셔츠',
+  '스탠다드 캔버스 토트백',
+  '캔버스 토트백',
+  '투톤 토트백'
+]
+
+[
+  'XXL',  'L',   'XL',  'S',
+  'XXXL', '140', '110', '150',
+  '160',  '130', 'XS',  'M',
+  '3XL',  '2XL', '3L',  'LL',
+  '100',  '120', 'WM',  '4L',
+  'SS',   '5L'
+]
