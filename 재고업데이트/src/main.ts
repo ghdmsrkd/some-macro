@@ -42,8 +42,11 @@ const loadXlsxThenConvert = (fileName: string) =>{
     }
   })
 
-  console.log(convertRawToJson)
   return convertRawToJson
+}
+
+const getProductSet = (inventoris: Array<Inventory>, target: "name" | "color" | "size" | "id") => {
+  return [...new Set(inventoris.map((inventory) => inventory.product[target]))]
 }
 
 const getLessProduct = (lte: number, inventoris: Array<Inventory>) =>{
@@ -55,8 +58,12 @@ const getLessProduct = (lte: number, inventoris: Array<Inventory>) =>{
 function main(){
   const fileName = "./src/target-cell.xlsx"
   const inventoris = loadXlsxThenConvert(fileName)
-  const littleInventoris = getLessProduct(50, inventoris)
-  console.log(littleInventoris)
+  const lessInventoris = getLessProduct(50, inventoris)
+  // console.log(getProductSet(lessInventoris, "color"))
+  // console.log(getProductSet(lessInventoris, "id"))
+  // console.log(getProductSet(lessInventoris, "name"))
+  // console.log(getProductSet(lessInventoris, "size"))
+  // console.log(lessInventoris)
 }
 
 main()
