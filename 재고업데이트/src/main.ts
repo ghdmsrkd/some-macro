@@ -1,5 +1,5 @@
 import * as xlsx from 'xlsx';
-import { colorToKR, sizeFormat } from './textFormat';
+import { colorToKR, lessInventoriesToString, sizeFormat } from './textFormat';
 import { Inventory } from './types';
 
 const loadXlsxThenConvert = (fileName: string) =>{
@@ -35,7 +35,7 @@ const loadXlsxThenConvert = (fileName: string) =>{
   return convertRawToJson
 }
 
-const getProductSet = (inventoris: Array<Inventory>, target: "name" | "color" | "size" | "id") => {
+export const getProductSet = (inventoris: Array<Inventory>, target: "name" | "color" | "size" | "id") => {
   return [...new Set(inventoris.map((inventory) => inventory.product[target]))]
 }
 
@@ -54,7 +54,8 @@ function main(){
   // console.log(getProductSet(inventoris, "name"))
   // console.log(getProductSet(inventoris, "size"))
   // lessInventoris.forEach(inventory => console.log(JSON.stringify(inventory.product)))
-  console.log(lessInventoris)
+  // console.log(lessInventoris)
+  console.log(lessInventoriesToString(lessInventoris))
 }
 
 main()

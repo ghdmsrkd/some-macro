@@ -1,3 +1,6 @@
+import { getProductSet } from "./main"
+import { Inventory } from "./types"
+
 export const colorToKR = (color: string) : string => {
   const colorMap : any = {
     "WHITE": "화이트",
@@ -115,6 +118,61 @@ export const sizeFormat = (size: string) : string => {
   return sizeMap[size]
 }
 
-export const convertToString = () =>{
-  
+export const formatIdToName = (id: string) : string => {
+  const idtoNameMap : any = {
+    "00083-BBT": "라이트 라운드 티셔츠",
+    "00085-CVT": "베이직 라운드 티셔츠",
+    "00086-DMT": "스탠다드 라운드 티셔츠 (20수)",
+    "00102-CVL": "베이직 라운드 긴팔 티셔츠(17수)",
+    "00113-BCV": "오버핏 라운드 티셔츠 (17수)",
+    "00115-CNS": "민소매 티셔츠 (17수)",
+    "00141-NVP": "베이직 폴로셔츠(주머니 없음)",
+    "00148-HVT": "헤비 라운드 티셔츠(14수)",
+    "00216-MLH": "후드티",
+    "00217-MLZ": "후드 집업",
+    "00218-MLP": "쮸리 팬츠",
+    "00219-MLC": "맨투맨",
+    "00220-MHP": "쮸리 하프 팬츠",
+    "00238-RFJ": "리플렉트 플리스 자켓",
+    "00300-ACT": "드라이 라운드 티셔츠",
+    "00302-ADP": "드라이 폴로 셔츠",
+    "00304-ALT": "드라이 롱 슬리브 티셔츠",
+    "00313-ABN": "드라이 버튼다운 폴로셔츠",
+    "00315-AYB": "드라이 레이어드 버튼다운 폴로셔츠 (주머니 있음)",
+    "00325-ACP": "드라이 하프 팬츠",
+    "00330-AVP": "드라이 폴로셔츠 (주머니 있음)",
+    "00331-ABP": "드라이 버튼 다운 폴로셔츠",
+    "00335-ALP": "드라이 긴팔 폴로셔츠",
+    "00338-AMZ": "드라이 집업 파카",
+    "00339-AYP": "드라이 레이어드 폴로 셔츠 (주머니 있음)",
+    "00342-ASZ": "헤비 드라이 후드 집업",
+    "00346-AFC": "드라이 기모 맨투맨",
+    "00347-AFH": "드라이 기모 후드",
+    "00348-AFZ": "드라이 기모 후드 집업",
+    "00350-AIT": "라이트 드라이 라운드 티셔츠",
+    "00777-SCT": "스탠다드 캔버스 토트백",
+    "00778-TCC": "캔버스 토트백",
+    "00780-TWT": "투톤 토트백"
+  }
+  return idtoNameMap[id]
+}
+
+export const lessInventoriesToString = (inventoris: Array<Inventory>) =>{
+  const productIds = getProductSet(inventoris, "id")
+
+  const convertedString = productIds.reduce((pre, id) => {
+    const idFiltered = inventoris.filter(inventory => inventory.product.id === id)
+    const productColors = getProductSet(idFiltered, "color")
+
+    const convertedString = productColors.reduce((pre, color) => {
+      const colorFiltered = idFiltered.filter(inventory => inventory.product.color === color)
+      
+      const convertedString = colorFiltered.reduce((pre, cur) => {
+        return pre + ` ${cur.product.size}`
+      },"")
+      return pre + `${color} : ${convertedString}\n`
+    },"")
+    return pre + `${formatIdToName(id)}(${id})\n${convertedString}`+"\n"
+  },"")
+  return convertedString
 }
