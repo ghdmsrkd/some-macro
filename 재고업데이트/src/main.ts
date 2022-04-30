@@ -1,16 +1,6 @@
 import * as xlsx from 'xlsx';
-
-//재고
-type Inventory = {
-  index: string
-  product: {
-      name: string
-      id: string
-      color: string
-      size: string
-  }
-  amount: number
-}
+import { colorToKR, lessInventoriesToString, sizeFormat } from './textFormat';
+import { Inventory } from './types';
 
 const loadXlsxThenConvert = (fileName: string) =>{
   const workbook = xlsx.readFile(fileName, {});
@@ -35,8 +25,8 @@ const loadXlsxThenConvert = (fileName: string) =>{
       product: {
         name:productName,
         id:tempParsedRaw[0],
-        color:tempParsedRaw.slice(1, tempParsedRaw.length - 1).join(" "),
-        size:tempParsedRaw[tempParsedRaw.length - 1],
+        color:colorToKR(tempParsedRaw.slice(1, tempParsedRaw.length - 1).join(" ")),
+        size:sizeFormat(tempParsedRaw[tempParsedRaw.length - 1]),
       },
       amount: +raw[2]
     }
@@ -45,7 +35,7 @@ const loadXlsxThenConvert = (fileName: string) =>{
   return convertRawToJson
 }
 
-const getProductSet = (inventoris: Array<Inventory>, target: "name" | "color" | "size" | "id") => {
+export const getProductSet = (inventoris: Array<Inventory>, target: "name" | "color" | "size" | "id") => {
   return [...new Set(inventoris.map((inventory) => inventory.product[target]))]
 }
 
@@ -59,11 +49,13 @@ function main(){
   const fileName = "./src/target-cell.xlsx"
   const inventoris = loadXlsxThenConvert(fileName)
   const lessInventoris = getLessProduct(50, inventoris)
-  // console.log(getProductSet(lessInventoris, "color"))
-  // console.log(getProductSet(lessInventoris, "id"))
-  // console.log(getProductSet(lessInventoris, "name"))
-  // console.log(getProductSet(lessInventoris, "size"))
+  // console.log(getProductSet(inventoris, "color"))
+  // console.log(getProductSet(inventoris, "id"))
+  // console.log(getProductSet(inventoris, "name"))
+  // console.log(getProductSet(inventoris, "size"))
+  // lessInventoris.forEach(inventory => console.log(JSON.stringify(inventory.product)))
   // console.log(lessInventoris)
+  console.log(lessInventoriesToString(lessInventoris))
 }
 
 main()
